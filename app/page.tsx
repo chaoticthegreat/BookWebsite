@@ -20,13 +20,6 @@ export default function Home() {
   );
   return (
 <div className={styles.wrapper}>
-  <div>
-    <ul className={styles.ul}>
-      <li className={styles.li} ><form onSubmit={(e)=>handler(e)}><input onChange={(e)=>setInput(e.target.value)}></input></form></li>
-      <li className={styles.li}>Home</li>
-      <li className={styles.li}>Recommednations</li>
-    </ul>
-  </div>
   <h1 className={styles.heading} id="head">Books. <br></br> Made. <br></br> Simple.</h1>
 </div>
   );
