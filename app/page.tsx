@@ -1,5 +1,5 @@
 
-
+'use client';
 import Image from "next/image";
 import styles from '@/app/Styles/home.module.css';
 import { hoverGradient } from '@/app/Utils/anims';

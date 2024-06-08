@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from "react";
+import {useState } from "react";
+import styles from '@/app/Styles/recs.module.css';
 
 export default function Home() {
     const [input, setInput] = useState("");
@@ -7,12 +8,14 @@ export default function Home() {
         console.log("bog");
         e.preventDefault();
         console.log(e);
+        var input = e.target.value; 
         var query = "https://openlibrary.org/search.json?q=" + input.replace(/ /g, "+");
-        fetch(query)
     }
     return (
-  <div>
-    <form onSubmit={handler(e)}><input></input></form>
+  <div className={styles.wrapper}>
+    <form onSubmit={(e)=>handler(e)}>
+      <input className={styles.input} placeholder={"search genres"}/>
+    </form>
   </div>
     );
   }

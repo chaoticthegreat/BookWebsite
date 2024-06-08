@@ -1,0 +1,9 @@
+.wrapper {
+    width:100%;
+    height:100%;
+    display:inline;
+}
+.input {
+    position:absolute;
+    top:50%;
+}
