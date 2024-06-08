@@ -23,7 +23,11 @@
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
+<<<<<<< HEAD
     width:1000px;
+=======
+    padding-top: 2% ;
+>>>>>>> a0e223b3d958074b644b2b5fbe0cf802966db233
  
     /*
       Introduced in IE 10.
