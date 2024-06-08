@@ -2,7 +2,8 @@
 'use client';
 import Image from "next/image";
 import styles from '@/app/Styles/home.module.css';
-import { useState } from "react";
+import { hoverGradient } from '@/app/Utils/anims';
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -13,6 +14,10 @@ export default function Home() {
     var query = "https://openlibrary.org/search.json?q=" + input.replace(/ /g, "+");
     console.log(query);
   }
+  useEffect(()=> {
+    hoverGradient();
+  }
+  );
   return (
 <div className={styles.wrapper}>
   <div>
@@ -22,7 +27,7 @@ export default function Home() {
       <li className={styles.li}>Recommednations</li>
     </ul>
   </div>
-  <h1 className={styles.heading}>Books. <br></br> Made. <br></br> Simple.</h1>
+  <h1 className={styles.heading} id="head">Books. <br></br> Made. <br></br> Simple.</h1>
 </div>
   );
 }
