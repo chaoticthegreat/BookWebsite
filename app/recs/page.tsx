@@ -2,20 +2,44 @@
 import {useState } from "react";
 import styles from '@/app/Styles/recs.module.css';
 
+
+
 export default function Home() {
     const [input, setInput] = useState("");
+    const [names, setNames] = useState([]);
     const handler = (e:any) => {
-        console.log("bog");
         e.preventDefault();
-        console.log(e);
-        var input = e.target.value; 
         var query = "https://openlibrary.org/search.json?q=" + input.replace(/ /g, "+");
+        console.log(query)
+        getNames(query)
+    }
+    function getNames(query: string): String {
+      fetch(query, {
+        method: 'GET'
+      }).then(response=>{
+        if(!response.ok) {
+          throw new Error("Network response is not ok" + response.statusText)
+        }
+        return response.json()
+      })
+      .then(data=> {
+        for (let i=0; i<3; i++) {
+          console.log(data.docs[0]["title"])
+        }
+        setNames([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
+        console.log([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
+      })
     }
     return (
   <div className={styles.wrapper}>
     <form onSubmit={(e)=>handler(e)}>
-      <input className={styles.input} placeholder={"search genres"}/>
+      <input className={styles.input} placeholder={"search genres"} onChange={(e)=>(setInput(e.target.value))}/>
     </form>
+    {names.map((input, index)=> (
+      <li key={index}>
+        {input}
+      </li>
+    ))}
   </div>
     );
   }
