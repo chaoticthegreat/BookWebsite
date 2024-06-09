@@ -26,8 +26,8 @@ export default function Home() {
         for (let i=0; i<3; i++) {
           console.log(data.docs[0]["title"])
         }
-        setNames([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
-        console.log([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
+        setNames([[data.docs[0].title, data.docs[0].cover_edition_key],[data.docs[1].title, data.docs[0].cover_edition_key],[data.docs[2].title, data.docs[0].cover_edition_key], ])
+        console.log([[data.docs[0].title, data.docs[0].cover_edition_key],[data.docs[1].title, data.docs[0].cover_edition_key],[data.docs[2].title, data.docs[0].cover_edition_key], ])
       })
     }
     return (
@@ -37,7 +37,8 @@ export default function Home() {
     </form>
     {names.map((input, index)=> (
       <li key={index}>
-        {input}
+        <h1>{input[0]}</h1>
+        <img src={`https://covers.openlibrary.org/b/olid/${input[1]}-S.jpg`} alt={input} />
       </li>
     ))}
   </div>
