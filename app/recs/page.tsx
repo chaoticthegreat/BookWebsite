@@ -24,8 +24,11 @@ export default function Home() {
         return response.json()
       })
       .then(data=> {
-        setNames([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
-        console.log([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
+        for (let i=0; i<3; i++) {
+          console.log(data.docs[0]["title"])
+        }
+        setNames([[data.docs[0].title, data.docs[0].cover_edition_key],[data.docs[1].title, data.docs[1].cover_edition_key],[data.docs[2].title, data.docs[2].cover_edition_key], ])
+        console.log([[data.docs[0].title, data.docs[0].cover_edition_key],[data.docs[1].title, data.docs[0].cover_edition_key],[data.docs[2].title, data.docs[0].cover_edition_key], ])
       })
     }
     return (
@@ -35,9 +38,9 @@ export default function Home() {
         <input className={styles.input} placeholder={"search genres"} onChange={(e)=>(setInput(e.target.value))}/>
       </form>
     </div>
-    <div id="results">
+    <div id="results" className={styles.results}>
       {names.map((input)=> (
-          <Book args={["none",input,"crap"]}/>
+          <Book args={[`https://covers.openlibrary.org/b/olid/${input[1]}-S.jpg`,input[0],"crap"]}/>
       ))}
     </div>
     <div id="recs">

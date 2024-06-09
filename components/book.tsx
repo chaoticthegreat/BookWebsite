@@ -7,6 +7,7 @@ export default function book(props:any) {
             <div>
                 <h6>{props.args[1]}</h6>
                 <p>{props.args[2]}</p>
+                <button> Wishlist </button>
             </div>
         </div>
     );

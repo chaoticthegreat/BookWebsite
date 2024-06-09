@@ -1,7 +1,16 @@
 .book {
     display:inline-block;
-    width:33%;
-    height:50%;
+    text-align:center;
+    justify-content:center;
+    width:30%;
+    height:100%;
+    bottom:10px;
     border-radius:20px;
     background-color:blue;
+    margin:10px 10px 10px 10px; 
+}
+.image {
+    position:relative;
+    display:block; 
+    margin:auto;
 }
