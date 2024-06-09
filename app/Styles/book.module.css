@@ -6,11 +6,10 @@
     height:100%;
     bottom:10px;
     border-radius:20px;
-    background-color:blue;
+    background-color:lightgrey;
     margin:10px 10px 10px 10px; 
 }
 .image {
-    position:relative;
-    display:block; 
-    margin:auto;
+    margin: 10px auto;
+    height:50%;
 }
