@@ -1,7 +1,8 @@
 import Image from "next/image";
+import styles from '@/app/Styles/book.module.css';
 export default function book(props:any) {
     return (
-        <div>
+        <div className={styles.book}>
             <img src={props.args[0]}></img>
             <div>
                 <h6>{props.args[1]}</h6>

@@ -1,0 +1,7 @@
+.book {
+    display:inline-block;
+    width:33%;
+    height:50%;
+    border-radius:20px;
+    background-color:blue;
+}

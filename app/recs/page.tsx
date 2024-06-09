@@ -1,6 +1,7 @@
 'use client';
 import {useState } from "react";
 import styles from '@/app/Styles/recs.module.css';
+import Book from '@/components/book';
 
 
 
@@ -23,23 +24,25 @@ export default function Home() {
         return response.json()
       })
       .then(data=> {
-        for (let i=0; i<3; i++) {
-          console.log(data.docs[0]["title"])
-        }
         setNames([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
         console.log([data.docs[0].title,data.docs[1].title,data.docs[2].title, ])
       })
     }
     return (
   <div className={styles.wrapper}>
-    <form onSubmit={(e)=>handler(e)}>
-      <input className={styles.input} placeholder={"search genres"} onChange={(e)=>(setInput(e.target.value))}/>
-    </form>
-    {names.map((input, index)=> (
-      <li key={index}>
-        {input}
-      </li>
-    ))}
+    <div id="search">
+      <form onSubmit={(e)=>handler(e)}>
+        <input className={styles.input} placeholder={"search genres"} onChange={(e)=>(setInput(e.target.value))}/>
+      </form>
+    </div>
+    <div id="results">
+      {names.map((input)=> (
+          <Book args={["none",input,"crap"]}/>
+      ))}
+    </div>
+    <div id="recs">
+
+    </div>
   </div>
     );
   }
